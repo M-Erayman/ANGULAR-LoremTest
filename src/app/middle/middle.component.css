@@ -17,11 +17,21 @@
   position: absolute;
   top: 10%;
 }
-.midBody p {
-  font-size: 30px;
-  margin-top: -10px;
+.midBody .d1 {
+  height: 60px;
+  width: 900px;
+  margin-top: -20px;
   position: absolute;
-  top: 40%;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.midBody .d1 p {
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .midBody .inputDiv {
   position: absolute;
@@ -79,3 +89,29 @@
   cursor: not-allowed;
 }
 /* Button CSS End... */
+
+.pending {
+  color: gray;
+}
+
+.correct {
+  color: rgb(11, 199, 11);
+  font-weight: bold;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1500px) {
+  .midBody {
+    position: sticky;
+  }
+  .buttons {
+    position: sticky;
+  }
+  .inputDiv {
+    position: sticky;
+  }
+}
