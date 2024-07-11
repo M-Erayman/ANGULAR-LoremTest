@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -21,7 +21,7 @@ export class MiddleComponent {
 
   getInputValue(value: string) {
     this.enteredText = value;
-    console.log(this.enteredText);
+    // console.log(this.enteredText);
   }
 
   compare(randomLetter: string, enteredLetter: string) {
