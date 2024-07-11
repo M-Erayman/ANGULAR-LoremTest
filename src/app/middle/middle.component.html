@@ -1,0 +1,15 @@
+<div class="container midBody">
+  <h1 class="kodchasan-bold">Aşağıdaki Metni Girin</h1>
+  <p class="kodchasan-normal">
+    <span
+      [class]="compare(letter, enteredText[i])"
+      *ngFor="let letter of randomText.split(''); let i = index"
+      >{{ letter }}</span
+    >
+  </p>
+  <div class="inputDiv"><input class="inputArea" type="text" /></div>
+  <div class="buttons">
+    <button class="btnRefresh" role="button">Refresh</button>
+    <button class="btnRefresh" role="button">Clear</button>
+  </div>
+</div>

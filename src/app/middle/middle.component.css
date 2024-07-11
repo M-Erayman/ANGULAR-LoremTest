@@ -1,0 +1,81 @@
+.midBody {
+  background-color: aliceblue;
+  width: 1000px;
+  height: 300px;
+  border: 3px solid #000000;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(117, 82, 82, 0.22) 0px 15px 12px;
+  top: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.midBody h1 {
+  position: absolute;
+  top: 10%;
+}
+.midBody p {
+  font-size: 30px;
+  margin-top: -10px;
+  position: absolute;
+  top: 40%;
+}
+.midBody .inputDiv {
+  position: absolute;
+  top: 60%;
+  width: 80%;
+}
+
+.midBody .inputDiv .inputArea {
+  border-radius: 10px;
+  border: 2px solid #ffc107;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+}
+
+.midBody .buttons {
+  position: absolute;
+  top: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Button CSS... */
+.btnRefresh {
+  background-color: #ffc107;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100px;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btnRefresh:not(:disabled):hover,
+.btnRefresh:not(:disabled):focus {
+  outline: 0;
+  background: #ffc107;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(117, 82, 82, 0.22) 0px 15px 12px;
+}
+
+.btnRefresh:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+/* Button CSS End... */
