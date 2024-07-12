@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BaseService } from '../service/base.service';
 @Component({
   selector: 'middleComponent',
   standalone: true,
@@ -13,9 +14,16 @@ export class MiddleComponent {
   title = 'Harf';
   randomText = faker.lorem.sentence();
   enteredText = '';
-  @Input() buttonLCheckListMid: boolean[] = [false, false, false];
+  list: boolean[] = [];
+  constructor(private baseService: BaseService) {}
 
-  ngOnInit() {}
+  // Sayfa baslangicinda calisir...
+  ngOnInit() {
+    this.baseService.onDataChange().subscribe((data: any) => {
+      console.log(data);
+      this.list = data;
+    });
+  }
 
   onClick() {
     // window.location.reload();
@@ -25,7 +33,6 @@ export class MiddleComponent {
   getInputValue(value: string) {
     this.enteredText = value;
     // console.log(this.enteredText);
-    console.log(this.buttonLCheckListMid);
   }
 
   compare(randomLetter: string, enteredLetter: string) {
