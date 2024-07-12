@@ -1,7 +1,7 @@
 <div class="appBody">
   <navbarComponent></navbarComponent>
-  
-  <middleComponent></middleComponent>
 
-  <bottomComponent></bottomComponent>
+  <middleComponent [buttonLCheckListMid]="buttonCheckListApp"></middleComponent>
+
+  <bottomComponent (setAppEvent)="setValue($event)"></bottomComponent>
 </div>
