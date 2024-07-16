@@ -46,6 +46,9 @@
   height: 40px;
   text-align: center;
   outline: none;
+  font-family: "Kodchasan", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .midBody .buttons {
