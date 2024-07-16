@@ -1,5 +1,5 @@
 <div class="container midBody">
-  <h1 class="kodchasan-bold">Aşağıdaki Metni Girin</h1>
+  <h1 class="kodchasan-bold">Harf Eşleştirme</h1>
   <div class="d1">
     <p class="kodchasan-normal">
       <span
@@ -14,7 +14,8 @@
     <input
       class="inputArea"
       type="text"
-      (input)="getInputValue($event.target.value)"
+      [(ngModel)]="enteredText"
+      placeholder="Yukarıdaki metni giriniz..."
     />
   </div>
   <div class="buttons">

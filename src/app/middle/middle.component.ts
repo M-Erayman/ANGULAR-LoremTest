@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BaseService } from '../service/base.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'middleComponent',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, FormsModule],
   templateUrl: './middle.component.html',
   styleUrl: './middle.component.css',
 })
@@ -15,12 +16,13 @@ export class MiddleComponent {
   randomText = faker.lorem.sentence();
   enteredText = '';
   list: boolean[] = [];
+
   constructor(private baseService: BaseService) {}
 
   // Sayfa baslangicinda calisir...
   ngOnInit() {
     this.baseService.onDataChange().subscribe((data: any) => {
-      console.log(data);
+      //Console.log(data);
       this.list = data;
     });
   }
@@ -28,11 +30,7 @@ export class MiddleComponent {
   onClick() {
     // window.location.reload();
     this.randomText = faker.lorem.sentence();
-  }
-
-  getInputValue(value: string) {
-    this.enteredText = value;
-    // console.log(this.enteredText);
+    this.enteredText = '';
   }
 
   compare(randomLetter: string, enteredLetter: string) {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, output, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseService } from '../service/base.service';
@@ -19,21 +19,15 @@ export class BottomComponent {
   constructor(private baseService: BaseService) {}
 
   cb1Control() {
-    // console.log(this.cb1Ischecked);
     this.cbList[0] = this.cb1Ischecked;
-    // console.log(this.cbList);
-    this.baseService.nexdata(this.cbList);
+    this.baseService.nextdata(this.cbList);
   }
   cb2Control() {
-    // console.log(this.cb1Ischecked);
     this.cbList[1] = this.cb2Ischecked;
-    // console.log(this.cbList);
-    this.baseService.nexdata(this.cbList);
+    this.baseService.nextdata(this.cbList);
   }
   cb3Control() {
-    // console.log(this.cb1Ischecked);
     this.cbList[2] = this.cb3Ischecked;
-    // console.log(this.cbList);
-    this.baseService.nexdata(this.cbList);
+    this.baseService.nextdata(this.cbList);
   }
 }

@@ -8,7 +8,7 @@ export class BaseService {
   public operationOccurred = new Subject<any>();
   constructor() {}
 
-  nexdata(value: any) {
+  nextdata(value: any) {
     this.operationOccurred.next(value);
   }
   onDataChange() {
