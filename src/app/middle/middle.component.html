@@ -1,4 +1,4 @@
-<div class="container midBody">
+<div class="container midBody" [ngClass]="{ zoomEffect: isZoomed }">
   <h1 class="kodchasan-bold">Harf Eşleştirme</h1>
   <div class="d1">
     <p class="kodchasan-normal">
@@ -23,5 +23,6 @@
       Refresh
     </button>
     <button class="btnRefresh" role="button">Clear</button>
+    <button class="btnRefresh" (click)="btnStart()" role="button">Start</button>
   </div>
 </div>

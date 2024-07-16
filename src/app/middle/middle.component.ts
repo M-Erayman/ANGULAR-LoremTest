@@ -15,6 +15,7 @@ export class MiddleComponent {
   title = 'Harf';
   randomText = faker.lorem.sentence();
   enteredText = '';
+  isZoomed: boolean = false;
   list: boolean[] = [];
 
   constructor(private baseService: BaseService) {}
@@ -31,6 +32,10 @@ export class MiddleComponent {
     // window.location.reload();
     this.randomText = faker.lorem.sentence();
     this.enteredText = '';
+  }
+
+  btnStart() {
+    this.isZoomed = !this.isZoomed;
   }
 
   compare(randomLetter: string, enteredLetter: string) {

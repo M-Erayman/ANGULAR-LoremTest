@@ -12,7 +12,15 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: transform 1s;
 }
+
+.zoomEffect {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
 .midBody h1 {
   position: absolute;
   top: 10%;
