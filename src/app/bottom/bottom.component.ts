@@ -14,9 +14,17 @@ export class BottomComponent {
   cb1Ischecked: boolean = false;
   cb2Ischecked: boolean = false;
   cb3Ischecked: boolean = false;
+  isFocus: boolean = false;
   cbList: boolean[] = [false, false, false];
 
   constructor(private baseService: BaseService) {}
+
+  ngOnInit() {
+    this.baseService.onDataChangeFocus().subscribe((data: any) => {
+      this.isFocus = data;
+      console.log(data);
+    });
+  }
 
   cb1Control() {
     this.cbList[0] = this.cb1Ischecked;

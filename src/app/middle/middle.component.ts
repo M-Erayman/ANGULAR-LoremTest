@@ -23,7 +23,7 @@ export class MiddleComponent {
   // Sayfa baslangicinda calisir...
   ngOnInit() {
     this.baseService.onDataChange().subscribe((data: any) => {
-      //Console.log(data);
+      console.log(data);
       this.list = data;
     });
   }
@@ -36,6 +36,7 @@ export class MiddleComponent {
 
   btnStart() {
     this.isZoomed = !this.isZoomed;
+    this.baseService.nextDataFocus(this.isZoomed);
   }
 
   compare(randomLetter: string, enteredLetter: string) {
