@@ -17,6 +17,8 @@ export class MiddleComponent {
   enteredText = '';
   isZoomed: boolean = false;
   list: boolean[] = [];
+  beforeZoom: string = 'Please chose your option and start the game...';
+  afterZoom: string = 'Please enter the text...';
 
   constructor(private baseService: BaseService) {}
 
@@ -42,9 +44,13 @@ export class MiddleComponent {
   compare(randomLetter: string, enteredLetter: string) {
     if (!enteredLetter) {
       return 'pending';
-    } else if (randomLetter === enteredLetter) {
-      //  (randomLetter = randomLetter.toLowerCase()) ===
-      // enteredLetter = enteredLetter.toLowerCase()
+    } else if (randomLetter === enteredLetter && this.list[0]) {
+      return 'correct';
+    } else if (
+      (randomLetter = randomLetter.toLowerCase()) ===
+        (enteredLetter = enteredLetter.toLowerCase()) &&
+      !this.list[0]
+    ) {
       return 'correct';
     } else {
       return 'incorrect';

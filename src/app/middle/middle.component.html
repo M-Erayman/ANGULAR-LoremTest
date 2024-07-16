@@ -14,8 +14,9 @@
     <input
       class="inputArea"
       type="text"
+      [readonly]="!isZoomed"
       [(ngModel)]="enteredText"
-      placeholder="Please enter the text..."
+      placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
     />
   </div>
   <div class="buttons">
@@ -23,6 +24,8 @@
       Refresh
     </button>
     <button class="btnRefresh" role="button">Clear</button>
-    <button class="btnRefresh" (click)="btnStart()" role="button">Start</button>
+    <button class="btnRefresh" (click)="btnStart()" role="button">
+      {{ !isZoomed ? "Start" : "Stop" }}
+    </button>
   </div>
 </div>
