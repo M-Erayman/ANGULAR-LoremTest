@@ -1,9 +1,32 @@
-<div class="container midBody">
-  <h1 class="kodchasan-bold">Aşağıdaki Metni Girin</h1>
-  <p class="kodchasan-normal">lorem lorem lorem lorem</p>
-  <div class="inputDiv"><input class="inputArea" type="text" /></div>
+<div class="container midBody" [ngClass]="{ zoomEffect: isZoomed }">
+  <h1 class="kodchasan-bold">Harf Eşleştirme</h1>
+  <div class="d1">
+    <p class="kodchasan-normal">
+      <span
+        [class]="compare(letter, enteredText[i])"
+        *ngFor="let letter of randomText.split(''); let i = index"
+        >{{ letter }}</span
+      >
+    </p>
+  </div>
+
+  <div class="inputDiv">
+    <input
+      class="inputArea"
+      type="text"
+      [readonly]="!isZoomed"
+      [(ngModel)]="enteredText"
+      (keydown.enter)="(enterKeydown())"
+      placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
+    />
+  </div>
   <div class="buttons">
-    <button class="btnRefresh" role="button">Refresh</button>
+    <button class="btnRefresh" role="button" (click)="onClick()">
+      Refresh
+    </button>
     <button class="btnRefresh" role="button">Clear</button>
+    <button class="btnRefresh" (click)="btnStart()" role="button">
+      {{ !isZoomed ? "Start" : "Stop" }}
+    </button>
   </div>
 </div>

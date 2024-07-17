@@ -20,3 +20,11 @@
 body {
   background-color: blueviolet;
 }
+
+.NONE {
+  pointer-events: none;
+  background-color: rgba(240, 248, 255, 0.5) !important;
+  transition: background-color 1s ease;
+  animation-fill-mode: forwards;
+}
+

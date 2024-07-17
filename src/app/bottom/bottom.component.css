@@ -11,6 +11,13 @@
   justify-content: center;
   align-items: start;
   flex-direction: column;
+  z-index: 1000;
+}
+
+.optionsBody p {
+  margin-bottom: 0px;
+  margin-left: 41%;
+  font-size: 30px;
 }
 
 .optionsBody .btnAndp {
@@ -19,9 +26,38 @@
 }
 .optionsBody .btnAndp p {
   display: flex;
-  margin-top: 10px;
   margin-left: 20px;
   font-size: 20px;
+}
+/* .optionsBody .btnAndp .pCase {
+  display: flex;
+  margin-left: 20px;
+  font-size: 20px;
+  width: 500px;
+} */
+
+.optionsBody .btnAndp .sliderDiv {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-left: 4rem;
+}
+
+.slider {
+  appearance: none; /* removes browser-specific styling */
+  width: 250px; /* width of slider */
+  height: 5px; /* height of slider */
+  background: #ffc107; /* orange background */
+  outline: none; /* remove outline */
+  border-radius: 50px; /* round corners */
+}
+​ .slider::-webkit-slider-thumb {
+  appearance: none; /* removes browser-specific styling */
+  width: 20px; /* handle width */
+  height: 20px; /* handle height */
+  border-radius: 50%; /* make it circular */
+  background: #ffffff; /* white color */
+  cursor: pointer; /* cursor on hover */
 }
 
 /*! #region Switch Button CSS.. */
