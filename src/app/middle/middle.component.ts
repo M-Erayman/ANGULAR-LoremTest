@@ -16,7 +16,7 @@ export class MiddleComponent {
   randomText = '';
   enteredText = '';
   isZoomed: boolean = false;
-  list: boolean[] = [];
+  list: any[] = [];
   beforeZoom: string = 'Please choose your option and start the game...';
   afterZoom: string = 'Please enter the text...';
   enterWatcher: boolean = false;
@@ -46,13 +46,15 @@ export class MiddleComponent {
       console.log(this.randomText.length);
       this.randomText = this.convertThirdToUpper(this.randomText); // Ucte birini buyuk harf yapar (GPT)...
     }
-    console.log(this.enteredText);
+    //console.log(this.enteredText);
     this.enteredText = '';
+    //console.log(this.list);
   }
 
   btnStart() {
     this.isZoomed = !this.isZoomed;
     this.baseService.nextDataFocus(this.isZoomed);
+    this.onClick();
   }
 
   compare(randomLetter: string, enteredLetter: string) {
@@ -77,14 +79,26 @@ export class MiddleComponent {
 
     // Harf olmayan karakterleri ayıkla ve sadece harfleri içeren bir dizi oluştur
     let letters = chars.filter((char) => /[a-zA-Z]/.test(char));
+    letters[0] = letters[0].toLowerCase();
+    if (this.list[3] === 100) {
+      for (let i = 0; i < letters.length; i++) {
+        letters[i] = letters[i].toUpperCase();
+      }
+    } else {
+      // Üçte biri kadar harfi büyük harf yapmamız gerektiğini hesapla
+      console.log(Math.ceil((letters.length * this.list[3]) / 100));
+      let numToUpper = Math.ceil((letters.length * this.list[3]) / 100);
 
-    // Üçte biri kadar harfi büyük harf yapmamız gerektiğini hesapla
-    let numToUpper = Math.ceil(letters.length / 3);
-
-    // Rastgele harfleri seçip büyük harfe çevir
-    for (let i = 0; i < numToUpper; i++) {
-      let index = Math.floor(Math.random() * letters.length);
-      letters[index] = letters[index].toUpperCase();
+      // Rastgele harfleri seçip büyük harfe çevir
+      for (let i = 0; i < numToUpper; ) {
+        let index = Math.floor(Math.random() * letters.length);
+        if (letters[index] === letters[index].toLowerCase()) {
+          letters[index] = letters[index].toUpperCase();
+          i++;
+        }
+        //i--;
+        console.log(letters[index]);
+      }
     }
 
     // Harf olmayan karakterleri yerinde bırakmak için orijinal diziyi güncelle

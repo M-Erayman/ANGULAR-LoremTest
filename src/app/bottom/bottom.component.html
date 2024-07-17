@@ -46,8 +46,14 @@
       </label>
     </div>
     <p class="kodchasan-regular pCase">Case sensitivity</p>
-    <div class="sliderDiv">
-      <input class="slider" type="range" [(ngModel)]="level" step="10" />
+    <div class="sliderDiv" [ngStyle]="{ display: list[0] ? 'flex' : 'none' }">
+      <input
+        class="slider"
+        type="range"
+        [(ngModel)]="level"
+        (change)="sliderChange()"
+        step="10"
+      />
       <p class="kodchasan-regular">{{ level }}</p>
     </div>
   </div>

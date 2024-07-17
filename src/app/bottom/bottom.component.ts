@@ -16,7 +16,7 @@ export class BottomComponent {
   cb2Ischecked: boolean = false;
   cb3Ischecked: boolean = false;
   isFocus: boolean = false;
-  cbList: boolean[] = [false, false, false];
+  list: any[] = [false, false, false];
   level: number = 50;
 
   constructor(private baseService: BaseService) {}
@@ -24,21 +24,25 @@ export class BottomComponent {
   ngOnInit() {
     this.baseService.onDataChangeFocus().subscribe((data: any) => {
       this.isFocus = data;
-      console.log(data);
+      //console.log(data);
     });
+    this.list[3] = this.level;
   }
 
   cb1Control() {
-    this.cbList[0] = this.cb1Ischecked;
-    this.baseService.nextdata(this.cbList);
-    console.log(this.level);
+    this.list[0] = this.cb1Ischecked;
+    this.baseService.nextdata(this.list);
+    //console.log(this.level);
   }
   cb2Control() {
-    this.cbList[1] = this.cb2Ischecked;
-    this.baseService.nextdata(this.cbList);
+    this.list[1] = this.cb2Ischecked;
+    this.baseService.nextdata(this.list);
   }
   cb3Control() {
-    this.cbList[2] = this.cb3Ischecked;
-    this.baseService.nextdata(this.cbList);
+    this.list[2] = this.cb3Ischecked;
+    this.baseService.nextdata(this.list);
+  }
+  sliderChange() {
+    this.list[3] = this.level;
   }
 }
