@@ -58,7 +58,67 @@
   border-radius: 50%; /* make it circular */
   background: #ffffff; /* white color */
   cursor: pointer; /* cursor on hover */
-  
+}
+
+.optionsBody .btnAndp .timerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-left: 11rem;
+}
+.optionsBody .btnAndp .timerDiv .negative {
+  height: 36px;
+  width: 30px;
+  border: 3px solid blueviolet;
+  border-right: 0;
+  border-radius: 15px 0 0 15px;
+  background-color: #ffc107;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.optionsBody .btnAndp .timerDiv .negative p {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.optionsBody .btnAndp .timerDiv .numberDiv {
+  height: 36px;
+  width: 60px;
+  border: 3px solid blueviolet;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.optionsBody .btnAndp .timerDiv .numberDiv p {
+  margin-left: 0;
+}
+.optionsBody .btnAndp .timerDiv .positive {
+  height: 36px;
+  width: 30px;
+  border: 3px solid blueviolet;
+  border-left: 0;
+  border-radius: 0 15px 15px 0;
+  background-color: #ffc107;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.optionsBody .btnAndp .timerDiv .positive p {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-weight: bold;
 }
 
 /*! #region Switch Button CSS.. */

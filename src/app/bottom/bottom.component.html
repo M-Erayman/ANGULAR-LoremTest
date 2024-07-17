@@ -103,6 +103,19 @@
       </label>
     </div>
     <p>Timer</p>
+    <div class="timerDiv" [ngStyle]="{ display: list[1] ? 'flex' : 'none' }">
+      <div class="negative">
+        <p>-</p>
+      </div>
+      <div class="numberDiv">
+        <p class="kodchasan-regular">8435</p>
+      </div>
+      <div class="positive">
+        <p>+</p>
+      </div>
+      <p class="kodchasan-regular">Seconds</p>
+      <p></p>
+    </div>
   </div>
 
   <div class="btnAndp">

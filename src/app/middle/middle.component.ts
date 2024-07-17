@@ -20,6 +20,32 @@ export class MiddleComponent {
   beforeZoom: string = 'Please choose your option and start the game...';
   afterZoom: string = 'Please enter the text...';
   enterWatcher: boolean = false;
+  seconds: number = 10;
+  intervalId: any;
+
+  ngOnDestroy(): void {
+    this.clearTimer();
+  }
+
+  startTimer(): void {
+    this.clearTimer(); // Önceki zamanlayıcıyı temizle
+    this.intervalId = setInterval(() => {
+      if (this.seconds > 0) {
+        this.seconds--;
+      } else {
+        this.clearTimer();
+        this.isZoomed = !this.isZoomed;
+        this.baseService.nextDataFocus(this.isZoomed);
+        this.seconds = this.list[4];
+      }
+    }, 1000);
+  }
+
+  clearTimer(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
 
   constructor(private baseService: BaseService) {
     this.onClick();
@@ -55,6 +81,8 @@ export class MiddleComponent {
     this.isZoomed = !this.isZoomed;
     this.baseService.nextDataFocus(this.isZoomed);
     this.onClick();
+    this.seconds = this.list[4];
+    this.startTimer();
   }
 
   compare(randomLetter: string, enteredLetter: string) {

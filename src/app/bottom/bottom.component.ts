@@ -18,6 +18,7 @@ export class BottomComponent {
   isFocus: boolean = false;
   list: any[] = [false, false, false];
   level: number = 50;
+  time: number = 0;
 
   constructor(private baseService: BaseService) {}
 
@@ -44,5 +45,8 @@ export class BottomComponent {
   }
   sliderChange() {
     this.list[3] = this.level;
+  }
+  timerChange() {
+    this.list[4] = this.level;
   }
 }
