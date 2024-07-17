@@ -1,5 +1,5 @@
 <div class="container optionsBody" [ngClass]="{ NONE: isFocus }">
-<p class="kodchasan-bold">Options</p>
+  <p class="kodchasan-bold">Options</p>
 
   <div class="btnAndp">
     <div class="toggler">
@@ -45,7 +45,11 @@
         </svg>
       </label>
     </div>
-    <p class="kodchasan-regular">Case sensitivity</p>
+    <p class="kodchasan-regular pCase">Case sensitivity</p>
+    <div class="sliderDiv">
+      <input class="slider" type="range" [(ngModel)]="level" step="10" />
+      <p class="kodchasan-regular">{{ level }}</p>
+    </div>
   </div>
 
   <div class="btnAndp">
