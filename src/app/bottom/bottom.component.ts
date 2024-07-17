@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseService } from '../service/base.service';
 
+
 @Component({
   selector: 'bottomComponent',
   standalone: true,

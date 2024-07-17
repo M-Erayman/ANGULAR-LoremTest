@@ -16,6 +16,7 @@
       type="text"
       [readonly]="!isZoomed"
       [(ngModel)]="enteredText"
+      (keydown.enter)="(enterKeydown())"
       placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
     />
   </div>

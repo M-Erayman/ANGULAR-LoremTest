@@ -14,13 +14,18 @@
   z-index: 1000;
 }
 
+.optionsBody p {
+  margin-bottom: 0px;
+  margin-left: 41%;
+  font-size: 30px;
+}
+
 .optionsBody .btnAndp {
   display: flex;
   align-items: center;
 }
 .optionsBody .btnAndp p {
   display: flex;
-  margin-top: 10px;
   margin-left: 20px;
   font-size: 20px;
 }
