@@ -1,4 +1,4 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
