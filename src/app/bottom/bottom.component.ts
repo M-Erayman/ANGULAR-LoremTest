@@ -38,6 +38,8 @@ export class BottomComponent {
   cb2Control() {
     this.list[1] = this.cb2Ischecked;
     this.baseService.nextdata(this.list);
+    if (this.cb2Ischecked) {
+    }
   }
   cb3Control() {
     this.list[2] = this.cb3Ischecked;
@@ -47,6 +49,6 @@ export class BottomComponent {
     this.list[3] = this.level;
   }
   timerChange() {
-    this.list[4] = this.level;
+    this.list[4] = this.time;
   }
 }
