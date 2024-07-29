@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -47,7 +47,11 @@ export class MiddleComponent {
     }
   }
 
-  constructor(private baseService: BaseService) {
+  constructor(
+    private baseService: BaseService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {
     this.onClick();
   }
 
@@ -64,12 +68,22 @@ export class MiddleComponent {
     this.onClick();
   }
 
+  // this function focus on input when isZoomen=true
+  ngAfterViewChecked() {
+    const inputElement = this.el.nativeElement.querySelector('input');
+    if (inputElement) {
+      if (this.isZoomed) {
+        this.renderer.selectRootElement(inputElement).focus();
+      }
+    }
+  }
+
   onClick() {
     // window.location.reload();
     this.randomText = faker.lorem.sentence();
     this.randomText = this.randomText.slice(0, -1);
     if (this.list[0]) {
-      console.log(this.randomText.length);
+      // console.log(this.randomText.length);
       this.randomText = this.convertThirdToUpper(this.randomText); // Ucte birini buyuk harf yapar (GPT)...
     }
     //console.log(this.enteredText);
@@ -81,8 +95,11 @@ export class MiddleComponent {
     this.isZoomed = !this.isZoomed;
     this.baseService.nextDataFocus(this.isZoomed);
     this.onClick();
-    this.seconds = this.list[4];
-    this.startTimer();
+    console.log(this.list);
+    if (this.list[1]) {
+      this.seconds = this.list[4];
+      this.startTimer();
+    }
   }
 
   compare(randomLetter: string, enteredLetter: string) {
@@ -114,7 +131,7 @@ export class MiddleComponent {
       }
     } else {
       // Üçte biri kadar harfi büyük harf yapmamız gerektiğini hesapla
-      console.log(Math.ceil((letters.length * this.list[3]) / 100));
+      // console.log(Math.ceil((letters.length * this.list[3]) / 100));
       let numToUpper = Math.ceil((letters.length * this.list[3]) / 100);
 
       // Rastgele harfleri seçip büyük harfe çevir
@@ -125,7 +142,7 @@ export class MiddleComponent {
           i++;
         }
         //i--;
-        console.log(letters[index]);
+        // console.log(letters[index]);
       }
     }
 

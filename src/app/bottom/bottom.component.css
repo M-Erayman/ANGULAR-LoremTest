@@ -20,6 +20,17 @@
   font-size: 30px;
 }
 
+/* Modern tarayıcılar için */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari */
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
 .optionsBody .btnAndp {
   display: flex;
   align-items: center;
@@ -64,8 +75,9 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-left: 11rem;
+  margin-left: 13rem;
 }
+
 .optionsBody .btnAndp .timerDiv .negative {
   height: 36px;
   width: 30px;
@@ -95,6 +107,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.optionsBody .btnAndp .timerDiv .numberDiv .timerInput {
+  height: 30px;
+  width: 54px;
+  border: none;
+  background-color: #f0f8ff;
+  text-align: center;
+  align-items: center;
+  outline: none;
 }
 .optionsBody .btnAndp .timerDiv .numberDiv p {
   margin-left: 0;

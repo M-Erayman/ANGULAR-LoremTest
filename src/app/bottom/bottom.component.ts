@@ -18,7 +18,7 @@ export class BottomComponent {
   isFocus: boolean = false;
   list: any[] = [false, false, false];
   level: number = 50;
-  time: number = 0;
+  time: number = 30;
 
   constructor(private baseService: BaseService) {}
 
@@ -39,6 +39,7 @@ export class BottomComponent {
     this.list[1] = this.cb2Ischecked;
     this.baseService.nextdata(this.list);
     if (this.cb2Ischecked) {
+      this.list[4] = this.time;
     }
   }
   cb3Control() {
@@ -48,7 +49,33 @@ export class BottomComponent {
   sliderChange() {
     this.list[3] = this.level;
   }
-  timerChange() {
+
+  timeChange(value: number) {
+    this.time = value;
     this.list[4] = this.time;
+    console.log(this.time);
+  }
+
+  timeNegative() {
+    if (this.time - 10 > 0) {
+      this.time -= 10;
+      this.list[4] = this.time;
+      console.log(this.time);
+    }
+  }
+  timePositive() {
+    if (this.time < 9999) {
+      this.time += 10;
+      this.list[4] = this.time;
+      console.log(this.time);
+    }
+  }
+
+  inputLengthControl(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 4) {
+      input.value = input.value.slice(0, 4);
+      this.time = +input.value; // Angular model güncellemesi
+    }
   }
 }
