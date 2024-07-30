@@ -34,10 +34,12 @@ export class MiddleComponent {
         this.seconds--;
       } else {
         this.clearTimer();
-        this.isZoomed = !this.isZoomed;
+        if (this.isZoomed) {
+          this.isZoomed = false;
+        }
         this.baseService.nextDataFocus(this.isZoomed);
         this.seconds = this.list[4];
-      }
+      } 
     }, 1000);
   }
 

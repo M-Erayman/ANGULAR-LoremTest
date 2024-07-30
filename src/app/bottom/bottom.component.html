@@ -104,26 +104,33 @@
     </div>
     <p>Timer</p>
     <div class="timerDiv" [ngStyle]="{ display: list[1] ? 'flex' : 'none' }">
-      <div class="negative" (click)="timeNegative()">
-        <p>-</p>
+      <div class="selectSecDiv">
+        <div class="secDiv" (click)="selectSecDivClick(60)">60</div>
+        <div class="secDiv" (click)="selectSecDivClick(90)">90</div>
+        <div class="secDiv" (click)="selectSecDivClick(120)">120</div>
       </div>
-      <div class="numberDiv">
-        <p class="kodchasan-regular">
-          <input
-            type="number"
-            class="timerInput kodchasan-regular no-spinners"
-            value="{{ time }}"
-            max="9999"
-            [(ngModel)]="time"
-            (input)="inputLengthControl($event)"
-            (ngModelChange)="timeChange($event)"
-          />
-        </p>
+      <div class="numberDivContainer">
+        <div class="negative" (click)="timeNegative()">
+          <p>-</p>
+        </div>
+        <div class="numberDiv">
+          <p class="kodchasan-regular">
+            <input
+              type="number"
+              class="timerInput kodchasan-regular no-spinners"
+              value="{{ time }}"
+              max="9999"
+              [(ngModel)]="time"
+              (input)="inputLengthControl($event)"
+              (ngModelChange)="timeChange($event)"
+            />
+          </p>
+        </div>
+        <div class="positive" (click)="timePositive()">
+          <p>+</p>
+        </div>
+        <p class="kodchasan-regular">Seconds</p>
       </div>
-      <div class="positive" (click)="timePositive()">
-        <p>+</p>
-      </div>
-      <p class="kodchasan-regular">Seconds</p>
     </div>
   </div>
 

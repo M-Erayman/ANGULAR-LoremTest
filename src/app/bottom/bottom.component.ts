@@ -78,4 +78,10 @@ export class BottomComponent {
       this.time = +input.value; // Angular model güncellemesi
     }
   }
+
+  selectSecDivClick(value: number) {
+    // console.log(value);
+    this.time = value;
+    this.list[4] = this.time;
+  }
 }

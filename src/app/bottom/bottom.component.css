@@ -73,12 +73,34 @@ input[type="number"] {
 
 .optionsBody .btnAndp .timerDiv {
   display: flex;
+  width: 420px;
   align-items: center;
-  justify-content: start;
-  margin-left: 13rem;
+  justify-content: space-between;
+  margin-left: 50px;
 }
-
-.optionsBody .btnAndp .timerDiv .negative {
+.optionsBody .btnAndp .timerDiv .selectSecDiv {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.optionsBody .btnAndp .timerDiv .selectSecDiv .secDiv {
+  height: 36px;
+  width: 36px;
+  border: 3px solid blueviolet;
+  background-color: #f0f8ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.optionsBody .btnAndp .timerDiv .numberDivContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.optionsBody .btnAndp .timerDiv .numberDivContainer .negative {
   height: 36px;
   width: 30px;
   border: 3px solid blueviolet;
@@ -90,7 +112,7 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
-.optionsBody .btnAndp .timerDiv .negative p {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .negative p {
   color: white;
   font-size: 40px;
   text-align: center;
@@ -98,7 +120,7 @@ input[type="number"] {
   margin-bottom: 10px;
   font-weight: bold;
 }
-.optionsBody .btnAndp .timerDiv .numberDiv {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .numberDiv {
   height: 36px;
   width: 60px;
   border: 3px solid blueviolet;
@@ -108,7 +130,7 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
-.optionsBody .btnAndp .timerDiv .numberDiv .timerInput {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .numberDiv .timerInput {
   height: 30px;
   width: 54px;
   border: none;
@@ -117,10 +139,10 @@ input[type="number"] {
   align-items: center;
   outline: none;
 }
-.optionsBody .btnAndp .timerDiv .numberDiv p {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .numberDiv p {
   margin-left: 0;
 }
-.optionsBody .btnAndp .timerDiv .positive {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .positive {
   height: 36px;
   width: 30px;
   border: 3px solid blueviolet;
@@ -132,7 +154,7 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
-.optionsBody .btnAndp .timerDiv .positive p {
+.optionsBody .btnAndp .timerDiv .numberDivContainer .positive p {
   color: white;
   font-size: 30px;
   text-align: center;
