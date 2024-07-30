@@ -39,7 +39,7 @@ export class MiddleComponent {
         }
         this.baseService.nextDataFocus(this.isZoomed);
         this.seconds = this.list[4];
-      } 
+      }
     }, 1000);
   }
 
@@ -76,6 +76,8 @@ export class MiddleComponent {
     if (inputElement) {
       if (this.isZoomed) {
         this.renderer.selectRootElement(inputElement).focus();
+      } else {
+        this.renderer.selectRootElement(inputElement).blur();
       }
     }
   }
