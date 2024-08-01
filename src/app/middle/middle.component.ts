@@ -1,5 +1,5 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { faker } from '@faker-js/faker';
+import { faker, th } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BaseService } from '../service/base.service';
@@ -20,7 +20,7 @@ export class MiddleComponent {
   beforeZoom: string = 'Please choose your option and start the game...';
   afterZoom: string = 'Please enter the text...';
   enterWatcher: boolean = false;
-  seconds: number = 10;
+  seconds: number = 0;
   intervalId: any;
 
   ngOnDestroy(): void {
@@ -30,7 +30,7 @@ export class MiddleComponent {
   startTimer(): void {
     this.clearTimer(); // Önceki zamanlayıcıyı temizle
     this.intervalId = setInterval(() => {
-      if (this.seconds > 0) {
+      if (this.seconds > 0 && this.isZoomed) {
         this.seconds--;
       } else {
         this.clearTimer();
@@ -99,7 +99,12 @@ export class MiddleComponent {
     this.isZoomed = !this.isZoomed;
     this.baseService.nextDataFocus(this.isZoomed);
     this.onClick();
-    console.log(this.list);
+    // console.log(this.list);
+    // if (!this.isZoomed) {
+    //   this.seconds = 0;
+    //   // this.clearTimer();
+      
+    // }
     if (this.list[1]) {
       this.seconds = this.list[4];
       this.startTimer();

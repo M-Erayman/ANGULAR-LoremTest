@@ -52,6 +52,7 @@
         type="range"
         [(ngModel)]="level"
         (change)="sliderChange()"
+        [ngClass]="{ NONE: isFocus }"
         step="10"
       />
       <p class="kodchasan-regular">{{ level }}</p>
@@ -105,15 +106,37 @@
     <p>Timer</p>
     <div class="timerDiv" [ngStyle]="{ display: list[1] ? 'flex' : 'none' }">
       <div class="selectSecDiv">
-        <div class="secDiv" (click)="selectSecDivClick(60)">60</div>
-        <div class="secDiv" (click)="selectSecDivClick(90)">90</div>
-        <div class="secDiv" (click)="selectSecDivClick(120)">120</div>
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(60)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          60
+        </div>
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(90)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          90
+        </div>
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(120)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          120
+        </div>
       </div>
       <div class="numberDivContainer">
-        <div class="negative" (click)="timeNegative()">
+        <div
+          class="negative"
+          (click)="timeNegative()"
+          [ngClass]="{ NONE: isFocus }"
+        >
           <p>-</p>
         </div>
-        <div class="numberDiv">
+        <div class="numberDiv" [ngClass]="{ NONE: isFocus }">
           <p class="kodchasan-regular">
             <input
               type="number"
@@ -121,12 +144,17 @@
               value="{{ time }}"
               max="9999"
               [(ngModel)]="time"
+              [ngClass]="{ NONE: isFocus }"
               (input)="inputLengthControl($event)"
               (ngModelChange)="timeChange($event)"
             />
           </p>
         </div>
-        <div class="positive" (click)="timePositive()">
+        <div
+          class="positive"
+          (click)="timePositive()"
+          [ngClass]="{ NONE: isFocus }"
+        >
           <p>+</p>
         </div>
         <p class="kodchasan-regular">Seconds</p>
