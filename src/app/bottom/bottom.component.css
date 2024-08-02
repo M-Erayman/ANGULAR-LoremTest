@@ -1,4 +1,6 @@
 .optionsBody {
+  position: relative;
+  top: 16%;
   background-color: #f0f8ff;
   width: 700px;
   height: 300px;
@@ -6,7 +8,6 @@
   border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(117, 82, 82, 0.22) 0px 15px 12px;
-  margin-top: 11%;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -62,6 +63,11 @@ input[type="number"] {
   outline: none; /* remove outline */
   border-radius: 50px; /* round corners */
 }
+
+.slider:hover {
+  cursor: pointer;
+}
+
 ​ .slider::-webkit-slider-thumb {
   appearance: none; /* removes browser-specific styling */
   width: 20px; /* handle width */
@@ -95,6 +101,11 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
 }
+
+.secDiv:hover {
+  cursor: pointer;
+}
+
 .optionsBody .btnAndp .timerDiv .numberDivContainer {
   display: flex;
   justify-content: space-between;
@@ -112,6 +123,11 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
+
+.negative:hover {
+  cursor: pointer;
+}
+
 .optionsBody .btnAndp .timerDiv .numberDivContainer .negative p {
   color: white;
   font-size: 40px;
@@ -154,6 +170,11 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
+
+.positive:hover {
+  cursor: pointer;
+}
+
 .optionsBody .btnAndp .timerDiv .numberDivContainer .positive p {
   color: white;
   font-size: 30px;

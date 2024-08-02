@@ -70,6 +70,12 @@ export class MiddleComponent {
     this.onClick();
   }
 
+  blockBackspace(event: KeyboardEvent) {
+    if (this.list[2] && event.key === 'Backspace') {
+      event.preventDefault();
+    }
+  }
+
   // this function focus on input when isZoomen=true
   ngAfterViewChecked() {
     const inputElement = this.el.nativeElement.querySelector('input');
@@ -103,7 +109,7 @@ export class MiddleComponent {
     // if (!this.isZoomed) {
     //   this.seconds = 0;
     //   // this.clearTimer();
-      
+
     // }
     if (this.list[1]) {
       this.seconds = this.list[4];

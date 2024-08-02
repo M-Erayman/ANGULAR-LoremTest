@@ -79,7 +79,12 @@ export class BottomComponent {
     }
   }
 
-  selectSecDivClick(value: number) {
+  selectSecDivClick(value: number, event: Event) {
+    const element = event.target as HTMLElement;
+    element.style.backgroundColor = '#ffc107';
+    setTimeout(() => {
+      element.style.backgroundColor = '';
+    }, 100);
     // console.log(value);
     this.time = value;
     this.list[4] = this.time;

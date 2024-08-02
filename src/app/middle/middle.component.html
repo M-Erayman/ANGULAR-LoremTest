@@ -18,6 +18,7 @@
       [readonly]="!isZoomed"
       [(ngModel)]="enteredText"
       (keydown.enter)="enterKeydown()"
+      (keydown)="blockBackspace($event)"
       placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
     />
   </div>
