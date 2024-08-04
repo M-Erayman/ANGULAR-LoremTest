@@ -17,6 +17,12 @@
   font-style: normal;
 }
 
+/* .rubik-doodle-shadow-regular {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 800;
+  font-style: normal;
+} */
+
 body {
   background-color: blueviolet;
 }
@@ -27,4 +33,3 @@ body {
   transition: background-color 1s ease;
   animation-fill-mode: forwards;
 }
-

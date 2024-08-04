@@ -46,8 +46,15 @@
       </label>
     </div>
     <p class="kodchasan-regular pCase">Case sensitivity</p>
-    <div class="sliderDiv">
-      <input class="slider" type="range" [(ngModel)]="level" step="10" />
+    <div class="sliderDiv" [ngStyle]="{ display: list[0] ? 'flex' : 'none' }">
+      <input
+        class="slider"
+        type="range"
+        [(ngModel)]="level"
+        (change)="sliderChange()"
+        [ngClass]="{ NONE: isFocus }"
+        step="10"
+      />
       <p class="kodchasan-regular">{{ level }}</p>
     </div>
   </div>
@@ -97,6 +104,62 @@
       </label>
     </div>
     <p>Timer</p>
+    <div class="timerDiv" [ngStyle]="{ display: list[1] ? 'flex' : 'none' }">
+      <div class="selectSecDiv">
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(60, $event)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          60
+        </div>
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(90, $event)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          90
+        </div>
+        <div
+          class="secDiv"
+          (click)="selectSecDivClick(120, $event)"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          120
+        </div>
+      </div>
+      <div class="numberDivContainer">
+        <div
+          class="negative"
+          (click)="timeNegative()"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          <p>-</p>
+        </div>
+        <div class="numberDiv" [ngClass]="{ NONE: isFocus }">
+          <p class="kodchasan-regular">
+            <input
+              type="number"
+              class="timerInput kodchasan-regular no-spinners"
+              value="{{ time }}"
+              max="9999"
+              [(ngModel)]="time"
+              [ngClass]="{ NONE: isFocus }"
+              (input)="inputLengthControl($event)"
+              (ngModelChange)="timeChange($event)"
+            />
+          </p>
+        </div>
+        <div
+          class="positive"
+          (click)="timePositive()"
+          [ngClass]="{ NONE: isFocus }"
+        >
+          <p>+</p>
+        </div>
+        <p class="kodchasan-regular">Seconds</p>
+      </div>
+    </div>
   </div>
 
   <div class="btnAndp">
@@ -143,6 +206,6 @@
         </svg>
       </label>
     </div>
-    <p>lorem</p>
+    <p>Block the backspace</p>
   </div>
 </div>

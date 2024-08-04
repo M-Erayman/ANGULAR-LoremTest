@@ -1,5 +1,6 @@
 <div class="container midBody" [ngClass]="{ zoomEffect: isZoomed }">
-  <h1 class="kodchasan-bold">Harf Eşleştirme</h1>
+  <!-- <div class="countdownDiv"><p class="kodchasan-normal countdownP">999</p></div> -->
+  <h1 class="kodchasan-bold">Lorem Test</h1>
   <div class="d1">
     <p class="kodchasan-normal">
       <span
@@ -16,16 +17,24 @@
       type="text"
       [readonly]="!isZoomed"
       [(ngModel)]="enteredText"
-      (keydown.enter)="(enterKeydown())"
+      (keydown.enter)="enterKeydown()"
+      (keydown)="blockBackspace($event)"
       placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
     />
   </div>
+
   <div class="buttons">
-    <button class="btnRefresh" role="button" (click)="onClick()">
+    <button class="btnRefresh btnStart" role="button" (click)="onClick()">
       Refresh
     </button>
-    <button class="btnRefresh" role="button">Clear</button>
-    <button class="btnRefresh" (click)="btnStart()" role="button">
+    <button
+      class="btnRefresh countdown kodchasan-bold"
+      role="button"
+      [ngStyle]="{ display: list[1] ? 'flex' : 'none' }"
+    >
+      {{ seconds }}
+    </button>
+    <button class="btnRefresh btnStart" (click)="btnStart()" role="button">
       {{ !isZoomed ? "Start" : "Stop" }}
     </button>
   </div>
