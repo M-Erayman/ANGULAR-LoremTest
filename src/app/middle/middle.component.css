@@ -1,0 +1,174 @@
+.midBody {
+  background-color: aliceblue;
+  width: 1000px;
+  height: 300px;
+  border: 3px solid #000000;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(117, 82, 82, 0.22) 0px 15px 12px;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 1s;
+  z-index: 2000;
+}
+
+/* .midBody .countdownDiv {
+  width: 100px;
+  height: 100px;
+  background-color: #ffc107;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.midBody .countdownDiv .countdownP {
+  text-align: center;
+  font-size: 30px;
+} */
+
+.zoomEffect {
+  transform: scale(1.5) translate(0px, 5vh);
+}
+
+.hidden {
+  visibility: hidden; /* Görünmez yap */
+}
+
+.midBody h1 {
+  position: absolute;
+  top: 10%;
+}
+.midBody .d1 {
+  height: 60px;
+  width: 900px;
+  margin-top: -20px;
+  position: absolute;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.midBody .d1 p {
+  font-size: 30px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.midBody .inputDiv {
+  position: absolute;
+  top: 60%;
+  width: 80%;
+}
+
+.midBody .inputDiv .inputArea {
+  border-radius: 10px;
+  border: 2px solid #ffc107;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  outline: none;
+  font-family: "Kodchasan", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.midBody .buttons {
+  position: absolute;
+  top: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.midBody .buttons .countdown {
+  animation: countdownAnimation ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes countdownAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+/* .btnRefresh .btnRefresh2 {
+  animation: btnRefreshAnimation ease-in-out 1s ;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btnRefreshAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+} */
+
+/* Button CSS... */
+.btnRefresh {
+  background-color: #ffc107;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100px;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnRefresh:not(:disabled):hover,
+.btnRefresh:not(:disabled):focus {
+  outline: 0;
+  background: #ffc107;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(117, 82, 82, 0.22) 0px 15px 12px;
+}
+
+.btnRefresh:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+/* Button CSS End... */
+
+.pending {
+  color: gray;
+}
+
+.correct {
+  color: rgb(11, 199, 11);
+  font-weight: bold;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1500px) {
+  .midBody {
+    position: sticky;
+  }
+  .buttons {
+    position: sticky;
+  }
+  .inputDiv {
+    position: sticky;
+  }
+}
