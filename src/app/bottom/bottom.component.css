@@ -36,6 +36,7 @@ input[type="number"] {
   display: flex;
   align-items: center;
 }
+
 .optionsBody .btnAndp p {
   display: flex;
   margin-left: 20px;

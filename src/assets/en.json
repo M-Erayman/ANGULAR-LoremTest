@@ -1,0 +1,12 @@
+{
+  "bottomHeader": "Options",
+  "bottomCaseSensitivity": "Case Sensitivity",
+  "bottomTimer": "Timer",
+  "bottomBackspace": "Block The Backspace",
+  "bottomSeconds": "Seconds",
+  "middlePlaceHolderBefore": "Please choose your option and start the game...",
+  "middlePlaceHolderAfter": "Please enter the text...",
+  "middleRefresh": "Refresh",
+  "middleStart": "Start",
+  "middleStop": "Stop"
+}

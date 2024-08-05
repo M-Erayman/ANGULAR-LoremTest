@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BaseService } from '../service/base.service';
 import { FormsModule } from '@angular/forms';
+import trlang from '../../assets/tr.json';
+import enlang from '../../assets/en.json';
 @Component({
   selector: 'middleComponent',
   standalone: true,
@@ -17,14 +19,38 @@ export class MiddleComponent {
   enteredText = '';
   isZoomed: boolean = false;
   list: any[] = [];
-  beforeZoom: string = 'Please choose your option and start the game...';
-  afterZoom: string = 'Please enter the text...';
+  beforeZoom: string = '';
+  afterZoom: string = '';
   enterWatcher: boolean = false;
   seconds: number = 0;
   intervalId: any;
+  lang: number = 0;
+  translations: any = {
+    tr: trlang,
+    en: enlang,
+  };
+
+  constructor(
+    private baseService: BaseService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {
+    this.onClick();
+    this.updatePlaceHolder();
+  }
 
   ngOnDestroy(): void {
     this.clearTimer();
+  }
+
+  // Mevcut dilin JSON verisini döndüren bir getter
+  get currentTranslations() {
+    return this.lang === 0 ? this.translations.tr : this.translations.en;
+  }
+
+  private updatePlaceHolder() {
+    this.beforeZoom = this.currentTranslations.middlePlaceHolderBefore;
+    this.afterZoom = this.currentTranslations.middlePlaceHolderAfter;
   }
 
   startTimer(): void {
@@ -47,14 +73,6 @@ export class MiddleComponent {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
-  }
-
-  constructor(
-    private baseService: BaseService,
-    private renderer: Renderer2,
-    private el: ElementRef
-  ) {
-    this.onClick();
   }
 
   // Sayfa baslangicinda calisir...

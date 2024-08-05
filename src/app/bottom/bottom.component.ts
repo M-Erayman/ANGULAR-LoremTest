@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseService } from '../service/base.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import trlang from '../../assets/tr.json';
+import enlang from '../../assets/en.json';
 
 @Component({
   selector: 'bottomComponent',
@@ -19,8 +21,18 @@ export class BottomComponent {
   list: any[] = [false, false, false];
   level: number = 50;
   time: number = 30;
+  lang: number = 1;
+  translations: any = {
+    tr: trlang,
+    en: enlang,
+  };
 
   constructor(private baseService: BaseService) {}
+
+  // Mevcut dilin JSON verisini döndüren bir getter
+  get currentTranslations() {
+    return this.lang === 0 ? this.translations.tr : this.translations.en;
+  }
 
   ngOnInit() {
     this.baseService.onDataChangeFocus().subscribe((data: any) => {

@@ -1,5 +1,5 @@
 <div class="container optionsBody" [ngClass]="{ NONE: isFocus }">
-  <p class="kodchasan-bold">Options</p>
+  <p class="kodchasan-bold">{{ currentTranslations.bottomHeader }}</p>
 
   <div class="btnAndp">
     <div class="toggler">
@@ -45,7 +45,12 @@
         </svg>
       </label>
     </div>
-    <p class="kodchasan-regular pCase">Case sensitivity</p>
+    <p
+      class="kodchasan-regular pCase"
+      [ngStyle]="{ width: list[0] ? '180px' : '400px' }"
+    >
+      {{ currentTranslations.bottomCaseSensitivity }}
+    </p>
     <div class="sliderDiv" [ngStyle]="{ display: list[0] ? 'flex' : 'none' }">
       <input
         class="slider"
@@ -103,7 +108,7 @@
         </svg>
       </label>
     </div>
-    <p>Timer</p>
+    <p>{{ currentTranslations.bottomTimer }}</p>
     <div class="timerDiv" [ngStyle]="{ display: list[1] ? 'flex' : 'none' }">
       <div class="selectSecDiv">
         <div
@@ -157,7 +162,7 @@
         >
           <p>+</p>
         </div>
-        <p class="kodchasan-regular">Seconds</p>
+        <p class="kodchasan-regular">{{ currentTranslations.bottomSeconds }}</p>
       </div>
     </div>
   </div>
@@ -206,6 +211,6 @@
         </svg>
       </label>
     </div>
-    <p>Block the backspace</p>
+    <p>{{ currentTranslations.bottomBackspace }}</p>
   </div>
 </div>

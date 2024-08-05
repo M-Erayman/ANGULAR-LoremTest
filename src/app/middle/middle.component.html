@@ -25,7 +25,7 @@
 
   <div class="buttons">
     <button class="btnRefresh btnStart" role="button" (click)="onClick()">
-      Refresh
+      {{ currentTranslations.middleRefresh }}
     </button>
     <button
       class="btnRefresh countdown kodchasan-bold"
@@ -35,7 +35,11 @@
       {{ seconds }}
     </button>
     <button class="btnRefresh btnStart" (click)="btnStart()" role="button">
-      {{ !isZoomed ? "Start" : "Stop" }}
+      {{
+        !isZoomed
+          ? currentTranslations.middleStart
+          : currentTranslations.middleStop
+      }}
     </button>
   </div>
 </div>

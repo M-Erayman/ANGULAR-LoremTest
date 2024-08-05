@@ -1,0 +1,12 @@
+{
+  "bottomHeader": "Seçenekler",
+  "bottomCaseSensitivity": "Büyük/Küçük Harf Hassasiyeti",
+  "bottomTimer": "Zamanlayıcı",
+  "bottomBackspace": "Silme İşlemini Engelle",
+  "bottomSeconds": "Saniye",
+  "middlePlaceHolderBefore": "Lütfen istediğiniz seçenekleri seçin ve başlatın... ",
+  "middlePlaceHolderAfter": "Lütfen metni girin...",
+  "middleRefresh": "Yenile",
+  "middleStart": "Başla",
+  "middleStop": "Bitir"
+}
