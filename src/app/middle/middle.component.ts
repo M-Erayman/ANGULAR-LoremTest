@@ -1,7 +1,13 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  PLATFORM_ID,
+  Renderer2,
+} from '@angular/core';
 import { faker, th } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { BaseService } from '../service/base.service';
 import { FormsModule } from '@angular/forms';
 import trlang from '../../assets/tr.json';
@@ -24,7 +30,7 @@ export class MiddleComponent {
   enterWatcher: boolean = false;
   seconds: number = 0;
   intervalId: any;
-  lang: number = 0;
+  comingNavbar: any[] = [];
   translations: any = {
     tr: trlang,
     en: enlang,
@@ -33,8 +39,15 @@ export class MiddleComponent {
   constructor(
     private baseService: BaseService,
     private renderer: Renderer2,
-    private el: ElementRef
+    private el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedValue = localStorage.getItem('toggleValue');
+      if (savedValue !== null) {
+        this.comingNavbar[0] = JSON.parse(savedValue);
+      }
+    }
     this.onClick();
     this.updatePlaceHolder();
   }
@@ -45,7 +58,7 @@ export class MiddleComponent {
 
   // Mevcut dilin JSON verisini döndüren bir getter
   get currentTranslations() {
-    return this.lang === 0 ? this.translations.tr : this.translations.en;
+    return this.comingNavbar[0] ? this.translations.en : this.translations.tr;
   }
 
   private updatePlaceHolder() {
@@ -80,6 +93,11 @@ export class MiddleComponent {
     this.baseService.onDataChange().subscribe((data: any) => {
       //console.log(data);
       this.list = data;
+    });
+    this.baseService.onDataChangeLang().subscribe((data: any) => {
+      console.log('middle' + data);
+      this.comingNavbar = data;
+      this.updatePlaceHolder();
     });
     this.onClick;
   }

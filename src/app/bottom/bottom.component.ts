@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseService } from '../service/base.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -21,23 +21,37 @@ export class BottomComponent {
   list: any[] = [false, false, false];
   level: number = 50;
   time: number = 30;
-  lang: number = 1;
+  comingNavbar: any[] = [];
   translations: any = {
     tr: trlang,
     en: enlang,
   };
 
-  constructor(private baseService: BaseService) {}
+  constructor(
+    private baseService: BaseService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedValue = localStorage.getItem('toggleValue');
+      if (savedValue !== null) {
+        this.comingNavbar[0] = JSON.parse(savedValue);
+      }
+    }
+  }
 
   // Mevcut dilin JSON verisini döndüren bir getter
   get currentTranslations() {
-    return this.lang === 0 ? this.translations.tr : this.translations.en;
+    return this.comingNavbar[0] ? this.translations.en : this.translations.tr;
   }
 
   ngOnInit() {
     this.baseService.onDataChangeFocus().subscribe((data: any) => {
       this.isFocus = data;
       //console.log(data);
+    });
+    this.baseService.onDataChangeLang().subscribe((data: any) => {
+      console.log('bottom' + data);
+      this.comingNavbar = data;
     });
     this.list[3] = this.level;
   }

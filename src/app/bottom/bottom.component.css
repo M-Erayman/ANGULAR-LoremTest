@@ -14,10 +14,16 @@
   flex-direction: column;
   z-index: 1000;
 }
-
+.optionsBody .pContainerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .optionsBody p {
   margin-bottom: 0px;
-  margin-left: 41%;
+  text-align: center;
+  /*idth: 100%; */
   font-size: 30px;
 }
 

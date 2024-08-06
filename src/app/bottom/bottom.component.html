@@ -1,5 +1,7 @@
 <div class="container optionsBody" [ngClass]="{ NONE: isFocus }">
-  <p class="kodchasan-bold">{{ currentTranslations.bottomHeader }}</p>
+  <div class="pContainerDiv">
+    <p class="kodchasan-bold">{{ currentTranslations.bottomHeader }}</p>
+  </div>
 
   <div class="btnAndp">
     <div class="toggler">
@@ -45,12 +47,17 @@
         </svg>
       </label>
     </div>
+
     <p
       class="kodchasan-regular pCase"
-      [ngStyle]="{ width: list[0] ? '180px' : '400px' }"
+      [ngStyle]="{
+        width: list[0] ? '180px' : '400px',
+        'text-align': list[0] ? 'left' : 'center'
+      }"
     >
       {{ currentTranslations.bottomCaseSensitivity }}
     </p>
+
     <div class="sliderDiv" [ngStyle]="{ display: list[0] ? 'flex' : 'none' }">
       <input
         class="slider"

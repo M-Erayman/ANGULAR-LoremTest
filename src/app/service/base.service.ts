@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class BaseService {
   public operationOccurred = new Subject<any>();
   public focusControl = new Subject<any>();
+  public LangControl = new Subject<any>();
   constructor() {}
 
   //* bottomComponent -> MiddleComponent
@@ -23,5 +24,14 @@ export class BaseService {
   }
   onDataChangeFocus() {
     return this.focusControl.asObservable();
+  }
+
+  //* navbarComponent -> middleComponent
+  nextDataLang(value: any) {
+    this.LangControl.next(value);
+    // console.log(value);
+  }
+  onDataChangeLang() {
+    return this.LangControl.asObservable();
   }
 }

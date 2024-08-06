@@ -3,7 +3,7 @@
     <div class="buttonContainerDiv">
       <div class="switch">
         <label class="switch__wrapper">
-          <input type="checkbox" />
+          <input type="checkbox" [(ngModel)]="cbox" (change)="cboxChange()" />
           <span class="switch__slider"></span>
           <div></div>
         </label>
@@ -33,7 +33,7 @@
       </svg>
     </p>
     <div class="personDivContainer">
-      <p>{{ personName }}</p>
+      <p>{{ personNamePlaceHolder }}</p>
       <div class="personDiv"></div>
     </div>
   </nav>
