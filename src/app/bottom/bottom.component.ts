@@ -32,7 +32,7 @@ export class BottomComponent {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     if (isPlatformBrowser(this.platformId)) {
-      const savedValue = localStorage.getItem('toggleValue');
+      const savedValue = localStorage.getItem('languageValue');
       if (savedValue !== null) {
         this.comingNavbar[0] = JSON.parse(savedValue);
       }

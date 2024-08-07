@@ -28,7 +28,7 @@ export class NavbarComponent {
     // this.updatePersonNamePlaceHolder();
     //  debugger;
     if (isPlatformBrowser(this.platformId)) {
-      const savedValue = localStorage.getItem('toggleValue');
+      const savedValue = localStorage.getItem('languageValue');
       if (savedValue !== null) {
         this.cbox = JSON.parse(savedValue);
         this.list[0] = this.cbox;
@@ -53,7 +53,7 @@ export class NavbarComponent {
     this.updatePersonNamePlaceHolder();
     this.list[0] = this.cbox;
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('toggleValue', JSON.stringify(this.cbox));
+      localStorage.setItem('languageValue', JSON.stringify(this.cbox));
       this.baseService.nextDataLang(this.list);
     }
     // console.log('cbox : ' + this.cbox);

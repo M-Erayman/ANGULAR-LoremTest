@@ -1,6 +1,9 @@
 <div class="container midBody" [ngClass]="{ zoomEffect: isZoomed }">
   <!-- <div class="countdownDiv"><p class="kodchasan-normal countdownP">999</p></div> -->
-  <h1 class="kodchasan-bold">Lorem Test</h1>
+  <div class="hDiv">
+    <p class="kodchasan-bold">Lorem Test</p>
+  </div>
+
   <div class="d1">
     <p class="kodchasan-normal">
       <span
@@ -27,13 +30,14 @@
     <button class="btnRefresh btnStart" role="button" (click)="onClick()">
       {{ currentTranslations.middleRefresh }}
     </button>
-    <button
-      class="btnRefresh countdown kodchasan-bold"
+    <div
+      class="countdown kodchasan-bold"
       role="button"
       [ngStyle]="{ display: list[1] ? 'flex' : 'none' }"
+      disabled
     >
       {{ seconds }}
-    </button>
+    </div>
     <button class="btnRefresh btnStart" (click)="btnStart()" role="button">
       {{
         !isZoomed

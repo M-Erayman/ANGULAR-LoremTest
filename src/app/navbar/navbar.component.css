@@ -1,5 +1,6 @@
 .navbarContainer {
   width: 100%;
+  min-width: 1000px;
   height: 10%;
   display: flex;
   justify-content: center;
@@ -7,13 +8,16 @@
 .navbarContainer .navbar {
   width: 80%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(117, 82, 82, 0.22) 0px 15px 12px;
   border-radius: 0 0 40px 40px;
   border: 3px solid black;
   border-top: none;
+  flex-wrap: nowrap;
+  min-width: 1000px;
+  padding: 0px 2rem;
 }
 .navbarContainer .navbar .buttonContainerDiv {
   display: flex;
@@ -24,6 +28,8 @@
   font-size: 50px;
   letter-spacing: 10px;
   font-weight: bold;
+  width: 500px;
+  height: 72px;
 }
 .navbarContainer .navbar .header svg {
   display: flex;
@@ -42,22 +48,24 @@
   justify-content: center;
   align-items: center;
   width: 261px;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
 }
 .navbarContainer .personDivContainer p {
   margin-right: 0px;
-  width: 210px;
+  width: 100%;
   text-align: end;
   padding-right: 15px;
   padding-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .navbarContainer .personDiv {
-  height: 55px;
-  width: 55px;
+  min-height: 55px;
+  min-width: 55px;
   background-color: white;
   border-radius: 50%;
 }
-
 
 /*  */
 
