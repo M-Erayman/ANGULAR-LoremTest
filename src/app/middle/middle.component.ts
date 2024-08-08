@@ -4,6 +4,9 @@ import {
   Inject,
   PLATFORM_ID,
   Renderer2,
+  HostListener,
+  ViewChildren,
+  QueryList,
 } from '@angular/core';
 import { faker, th } from '@faker-js/faker';
 import { RouterOutlet } from '@angular/router';
@@ -35,6 +38,9 @@ export class MiddleComponent {
     tr: trlang,
     en: enlang,
   };
+  capsControl: boolean = false;
+  correctCount: number = 0;
+  incorrectCount: number = 0;
 
   constructor(
     private baseService: BaseService,
@@ -54,6 +60,11 @@ export class MiddleComponent {
 
   ngOnDestroy(): void {
     this.clearTimer();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    this.capsControl = event.getModifierState('CapsLock');
   }
 
   // Mevcut dilin JSON verisini döndüren bir getter
@@ -106,8 +117,11 @@ export class MiddleComponent {
     this.onClick();
   }
 
-  blockBackspace(event: KeyboardEvent) {
+  keyControl(event: KeyboardEvent) {
     if (this.list[2] && event.key === 'Backspace') {
+      event.preventDefault();
+    }
+    if (this.list[0] && this.capsControl) {
       event.preventDefault();
     }
   }
@@ -151,20 +165,24 @@ export class MiddleComponent {
       this.seconds = this.list[4];
       this.startTimer();
     }
+    this.checkSpanClasses();
   }
 
   compare(randomLetter: string, enteredLetter: string) {
     if (!enteredLetter) {
       return 'pending';
     } else if (randomLetter === enteredLetter && this.list[0]) {
+      // console.log('T*');
       return 'correct';
     } else if (
       (randomLetter = randomLetter.toLowerCase()) ===
         (enteredLetter = enteredLetter.toLowerCase()) &&
       !this.list[0]
     ) {
+      // console.log('T**');
       return 'correct';
     } else {
+      // console.log('F***');
       return 'incorrect';
     }
   }
@@ -207,5 +225,26 @@ export class MiddleComponent {
     }
     // Diziyi tekrar string'e dönüştür
     return chars.join('');
+  }
+
+  @ViewChildren('spanElement') spanElements!: QueryList<ElementRef>;
+  checkSpanClasses() {
+    // Bu metod DOM elemanlarının sınıflarını kontrol eder
+
+    this.spanElements.forEach((span) => {
+      if (span.nativeElement.classList.contains('correct')) {
+        this.correctCount++;
+      } else if (span.nativeElement.classList.contains('incorrect')) {
+        this.incorrectCount++;
+      }
+    });
+
+    console.log('Number of elements with class "correct":', this.correctCount);
+    console.log(
+      'Number of elements with class "incorrect":',
+      this.incorrectCount
+    );
+    this.correctCount = 0;
+    this.incorrectCount = 0;
   }
 }

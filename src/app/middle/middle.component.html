@@ -7,12 +7,20 @@
   <div class="d1">
     <p class="kodchasan-normal">
       <span
+        #spanElement
         [class]="compare(letter, enteredText[i])"
         *ngFor="let letter of randomText.split(''); let i = index"
         >{{ letter }}</span
       >
     </p>
   </div>
+
+  <p
+    class="capsWarning"
+    [ngStyle]="{ display: capsControl && list[0] ? 'flex' : 'none' }"
+  >
+    {{ currentTranslations.middleCapsLockControl }}
+  </p>
 
   <div class="inputDiv">
     <input
@@ -21,7 +29,7 @@
       [readonly]="!isZoomed"
       [(ngModel)]="enteredText"
       (keydown.enter)="enterKeydown()"
-      (keydown)="blockBackspace($event)"
+      (keydown)="keyControl($event)"
       placeholder="{{ !isZoomed ? beforeZoom : afterZoom }}"
     />
   </div>

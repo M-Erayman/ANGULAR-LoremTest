@@ -71,6 +71,13 @@
   text-align: center;
   width: 100%;
 }
+
+.midBody .capsWarning {
+  color: red;
+  font-weight: bold;
+  margin-top: 10.6rem;
+}
+
 .midBody .inputDiv {
   position: absolute;
   top: 60%;
